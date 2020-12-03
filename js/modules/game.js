@@ -1,6 +1,7 @@
 import Home from './home.js';
 import End from './end.js';
 import { sound } from '../data/sound.js';
+import Board from './board.js';
 
 const Game = (() => {
   const letters = [
@@ -47,6 +48,7 @@ const Game = (() => {
     lives = 7;
     showInitPage();
     listeners();
+    Board.init();
   };
 
   const listeners = () => {
@@ -76,7 +78,7 @@ const Game = (() => {
       updateGuessingWord(guess);
     } else {
       lives--;
-      //
+      Board.setLives(lives);
     }
     render();
     //
